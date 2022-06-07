@@ -86,8 +86,16 @@ ip link set brethrouter1 up
 ip link set brethrouter2 up
 
 
+
+
 ip netns exec node1 ip link set lo up
 ip netns exec node2 ip link set lo up
 ip netns exec node3 ip link set lo up
 ip netns exec node4 ip link set lo up
 ip netns exec router ip link set lo up
+
+
+ip netns exec node1 route add -net 0.0.0.0/0 gw 172.0.0.1
+ip netns exec node2 route add -net 0.0.0.0/0 gw 172.0.0.1
+ip netns exec node3 route add -net 0.0.0.0/0 gw 10.10.0.1
+ip netns exec node4 route add -net 0.0.0.0/0 gw 10.10.0.1
