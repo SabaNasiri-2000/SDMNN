@@ -52,9 +52,12 @@ class WebServerHandler(BaseHTTPRequestHandler):
         	return
 	
 
-port = 8000
-server = HTTPServer(('localhost', port), WebServerHandler)
-print("Web server is running on port {}".format(port))
-server.serve_forever()
-server.server_close()
+with HTTPServer(('',8000),WebServerHandler) as server:
+	server.serve_forever()
+
+#port = 8000
+#server = HTTPServer(('localhost', port), WebServerHandler)
+#print("Web server is running on port {}".format(port))
+#server.serve_forever()
+#server.server_close()
 
